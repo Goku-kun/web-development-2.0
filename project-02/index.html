@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Button Transitions</title>
+        <style>
+            button {
+                font-size: 3em;
+                color: magenta;
+                transition: transform 200ms ease-in 50ms;
+            }
+            button:hover {
+                color: rebeccapurple;
+                transform: scale(1.2);
+                transition: color 200ms ease-out 50ms;
+            }
+            nav ul {
+                display: inline-block;
+                background-color: brown;
+            }
+            nav li ul {
+                transition: transform 200ms ease-in 50ms;
+                transform: scale(1, 0);
+                transform-origin: top center;
+            }
+            nav li:hover ul {
+                transform: scale(1, 1);
+            }
+        </style>
+    </head>
+    <body>
+        <!--<button>This is a big button</button>-->
+        <nav>
+            <ul>
+                <li>
+                    Hello World
+                    <ul>
+                        <li>dropdown item-1</li>
+                        <li>dropdown item-2</li>
+                        <li>dropdown item-3</li>
+                    </ul>
+                </li>
+                <li>
+                    Hello World
+                    <ul>
+                        <li>dropdown item-1</li>
+                        <li>dropdown item-2</li>
+                        <li>dropdown item-3</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
