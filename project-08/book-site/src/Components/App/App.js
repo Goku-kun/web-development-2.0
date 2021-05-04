@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchBar from "./Components/SearchBar/SearchBar";
+import SearchBar from "./../SearchBar/SearchBar";
 import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 

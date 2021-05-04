@@ -15,7 +15,13 @@ function SearchBar(props) {
                 paddingRight: "30px",
             }}
         >
-            <TextField variant="standard" style={{ color: "white" }} size="medium" />
+            <TextField
+                type="search"
+                label="Book Name"
+                variant="standard"
+                style={{ color: "white" }}
+                size="medium"
+            />
             <Button
                 style={{ marginLeft: 20 }}
                 className="Search-Button"
