@@ -1,5 +1,9 @@
 import React from "react";
 import "./Track.css";
+import QueueIcon from "@material-ui/icons/Queue";
+import DeleteIcon from "@material-ui/icons/Delete";
+
+var colors = [];
 
 class Track extends React.Component {
     constructor(props) {
@@ -11,13 +15,13 @@ class Track extends React.Component {
         if (this.props.isRemoval) {
             return (
                 <button className="Track-action" onClick={this.removeTrack}>
-                    -
+                    <DeleteIcon style={{ color: "red" }} />
                 </button>
             );
         } else {
             return (
                 <button className="Track-action" onClick={this.addTrack}>
-                    +
+                    <QueueIcon />
                 </button>
             );
         }

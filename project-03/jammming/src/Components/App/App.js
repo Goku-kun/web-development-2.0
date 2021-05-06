@@ -12,6 +12,7 @@ class App extends React.Component {
             searchResults: [],
             playlistName: "New Playlist",
             playlistTracks: [],
+            loading: false,
         };
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
@@ -64,9 +65,13 @@ class App extends React.Component {
     }
 
     search(searchTerm) {
+        this.setState({
+            loading: true,
+        });
         Spotify.search(searchTerm).then((result) => {
             this.setState({
                 searchResults: result,
+                loading: false,
             });
         });
     }
@@ -74,7 +79,7 @@ class App extends React.Component {
         return (
             <div>
                 <h1>
-                    Play<span className="highlight">list</span>ta
+                    Ja<span className="highlight">mmm</span>ing
                 </h1>
                 <div className="App">
                     <SearchBar onSearch={this.search} />
@@ -82,6 +87,7 @@ class App extends React.Component {
                         <SearchResults
                             searchResults={this.state.searchResults}
                             onAdd={this.addTrack}
+                            loading={this.state.loading}
                         />
                         <PlayList
                             playlistTracks={this.state.playlistTracks}
@@ -91,7 +97,7 @@ class App extends React.Component {
                             onSave={this.savePlaylist}
                         />
                     </div>
-                    <p className="Footer">
+                    <p className="Credit">
                         Created with Love ❤️ by{" "}
                         <a
                             style={{ color: "red" }}
