@@ -10,6 +10,15 @@ class Searchbar extends React.Component {
             term: "",
         };
     }
+    componentDidMount() {
+        if (window.sessionStorage.getItem("firstReq") === "true") {
+            this.setState({
+                term: window.sessionStorage.getItem("searchTerm"),
+            });
+            window.sessionStorage.setItem("firstReq", "false");
+            this.search();
+        }
+    }
     handleTermChange(event) {
         this.setState({
             term: event.target.value,
@@ -24,6 +33,7 @@ class Searchbar extends React.Component {
                 <input
                     placeholder="Enter A Song, Album, or Artist"
                     onChange={this.handleTermChange}
+                    defaultValue={this.state.term}
                 />
                 <button className="SearchButton" onClick={this.search}>
                     SEARCH

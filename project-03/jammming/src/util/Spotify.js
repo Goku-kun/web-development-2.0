@@ -23,6 +23,10 @@ var Spotify = {
     },
 
     search(term) {
+        if (ACCESS_TOKEN === undefined) {
+            window.sessionStorage.setItem("firstReq", "true");
+            window.sessionStorage.setItem("searchTerm", term);
+        }
         const accessToken = Spotify.getAccessToken();
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {

@@ -13,12 +13,14 @@ class App extends React.Component {
             playlistName: "New Playlist",
             playlistTracks: [],
             loading: false,
+            firstReq: true,
         };
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
         this.updatePlaylistName = this.updatePlaylistName.bind(this);
         this.savePlaylist = this.savePlaylist.bind(this);
         this.search = this.search.bind(this);
+        this.preservingSearchQuery = this.preservingSearchQuery.bind(this);
     }
 
     addTrack(track) {
@@ -65,9 +67,14 @@ class App extends React.Component {
     }
 
     search(searchTerm) {
-        this.setState({
-            loading: true,
-        });
+        if (this.state.firstReq) this.preservingSearchQuery(searchTerm);
+        this.setState(updateState);
+        function updateState(prevState) {
+            return {
+                loading: true,
+                firstReq: false,
+            };
+        }
         Spotify.search(searchTerm).then((result) => {
             this.setState({
                 searchResults: result,
@@ -75,6 +82,11 @@ class App extends React.Component {
             });
         });
     }
+
+    preservingSearchQuery(term) {
+        window.sessionStorage.setItem("Search Term", term);
+    }
+
     render() {
         return (
             <div>
@@ -82,7 +94,7 @@ class App extends React.Component {
                     Ja<span className="highlight">mmm</span>ing
                 </h1>
                 <div className="App">
-                    <SearchBar onSearch={this.search} />
+                    <SearchBar onSearch={this.search} firstReq={this.state.firstReq} />
                     <div className="App-playlist">
                         <SearchResults
                             searchResults={this.state.searchResults}
