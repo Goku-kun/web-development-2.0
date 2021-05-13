@@ -1,0 +1,181 @@
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap");
+/* Mobile first css layout */
+
+html {
+    box-sizing: border-box;
+}
+
+/* inherit border-box on all elements in the universe and before and after
+ */
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+:root {
+    --text-color: #00aa00;
+}
+
+body {
+    font-family: "Roboto Mono", monospace;
+    background-color: #333;
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 50px;
+    letter-spacing: -5px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--text-color);
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p {
+    margin: 20px;
+}
+
+#container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main ul {
+    margin-left: -5%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav {
+    width: 30%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+a:hover {
+    color: #0fa0ce;
+}
+
+.cursor {
+    font-weight: 700;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: var(--text-color);
+    }
+}
+
+.header-div {
+    width: 100vw;
+    display: block;
+}
+
+.header-div h1 {
+    padding-left: 25%;
+}
+
+.wb-body {
+    background-color: #111;
+    padding: 20px;
+}
+
+.languages {
+    color: #fce94f;
+}
+
+@keyframes popupabout {
+    0% {
+        transform: scale(0.8) translateX(50px) translateY(50px);
+    }
+    to {
+        transform: scale(1) translateX(50px) translateY(50px);
+    }
+}
+@keyframes popupcontact {
+    0% {
+        transform: scale(0.8) translateX(70px) translateY(70px);
+    }
+    to {
+        transform: scale(1) translateX(70px) translateY(70px);
+    }
+}
+.winbox.about {
+    background: linear-gradient(90deg, #ff00f0, #0050ff);
+    animation: popupabout 0.3s cubic-bezier(0.3, 1, 0.3, 1) backwards;
+}
+.winbox.contact {
+    background: linear-gradient(90deg, #ff00f0, #0050ff);
+    animation: popupcontact 0.3s cubic-bezier(0.3, 1, 0.3, 1) backwards;
+}
+
+/* Mobile Landscape Screen Sizes */
+
+@media only screen and (min-width: 480px) {
+}
+
+/* Tablet screen Sizes */
+
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop Screen Sizes */
+
+@media only screen and (min-width: 1024px) {
+}
+
+/* Large Screen sizes */
+
+@media only screen and (min-width: 1440px) {
+}
