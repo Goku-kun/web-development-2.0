@@ -1,0 +1,47 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+body {
+  background: linear-gradient(289.6deg, #0C0C0C 0%, #2C4550 98.22%);
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+
+@media screen and (min-width: 1600px) {
+  h1 {
+    font-size: 48px;
+    color: white;
+  }
+  section.contact {
+    position: absolute;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 161px;
+    height: 900px;
+    border-right: 1px solid white;
+  }
+  nav.navigation {
+    display: flex;
+    /* position: absolute; */
+    width: 403px;
+    height: 30px;
+    left: 1042px;
+    top: 39px;
+  }
+  nav a {
+    margin: 5px;
+  }
+
+}
