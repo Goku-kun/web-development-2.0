@@ -1,5 +1,5 @@
 import { FaStar } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function createArray(length) {
   return Array(length).fill(null);
@@ -30,12 +30,35 @@ function StarRating({ TotalStars, select, setSelect }) {
 function App() {
   const [select, setSelect] = useState(0);
 
+  const sound = useRef();
+  const color = useRef();
+
+  function submit(event) {
+    event.preventDefault();
+
+    const soundValue = sound.current.value;
+    const colorValue = color.current.value;
+
+    sound.current.value = "";
+    color.current.value = "";
+
+    console.log(soundValue, colorValue);
+  }
+
   return (
     <div className="App">
       {<StarRating select={select} setSelect={setSelect} TotalStars={10} />}
       <h2>
         {select}/{10} stars selected
       </h2>
+
+      <div>
+        <form onSubmit={submit}>
+          <input type="text" ref={sound} />
+          <input type="color" ref={color} />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
